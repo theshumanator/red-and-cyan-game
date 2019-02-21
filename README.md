@@ -7,3 +7,7 @@ There are 8 possible winning conditions.
 ## Testing
 
 This was tested using Cypress.
+
+## Hosting
+
+The game is hosted in [Heroku](https://shumanator-red-cyan-game.herokuapp.com).
