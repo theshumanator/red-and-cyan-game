@@ -1,0 +1,25 @@
+{
+  "name": "red-and-cyan-game",
+  "version": "1.0.0",
+  "description": "This is exactly like noughts and crosses but with colours. When the user clicks on the cell, the colour changes to either red or cyan.",
+  "main": "index.js",
+  "dependencies": {
+    
+  },
+  "devDependencies": {
+    "cypress": "^3.1.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theshumanator/red-and-cyan-game.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theshumanator/red-and-cyan-game/issues"
+  },
+  "homepage": "https://github.com/theshumanator/red-and-cyan-game#readme"
+}
