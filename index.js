@@ -36,7 +36,6 @@ function playGame(event) {
         checkIfWinner();
         const winningColour = localStorage.getItem('Winner');
         if (winningColour){
-            console.log(winningColour);
             winnerLabel.style.setProperty('background-color', winningColour);
             winnerLabel.textContent = `${winningColour.toUpperCase()} WON!`;
         } else {

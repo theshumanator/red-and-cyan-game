@@ -13,7 +13,7 @@
      <h1>Lets play cyan and red!</h1>
     
      <div class="button">
-        <button>New Game</button>
+        <button data-cy="newGame">New Game</button>
         <p>
             First player will be <span id='red'>RED</span> and second player will be <span id='cyan'>CYAN</span>.
         </p>
@@ -21,17 +21,17 @@
 
 <div class="wrapper">
         <div id="gameboard">
-            <div id="topLeft"></div>
-            <div id="topMiddle" class="leftright"></div>
-            <div id="topRight"></div>
-            <div id="middleLeft" class="updown"></div>
-            <div id="middleMiddle" class="middle"></div>
-            <div id="middleRight" class="updown"></div>
-            <div id="bottomLeft"></div>
-            <div id="bottomMiddle" class="leftright"></div>
-            <div id="bottomRight"></div>
+            <div data-cy="topLeft" id="topLeft"></div>
+            <div data-cy="topMiddle" id="topMiddle" class="leftright"></div>
+            <div data-cy="topRight" id="topRight"></div>
+            <div data-cy="middleLeft" id="middleLeft" class="updown"></div>
+            <div data-cy="middleMiddle" id="middleMiddle" class="middle"></div>
+            <div data-cy="middleRight" id="middleRight" class="updown"></div>
+            <div data-cy="bottomLeft" id="bottomLeft"></div>
+            <div data-cy="bottomMiddle" id="bottomMiddle" class="leftright"></div>
+            <div data-cy="bottomRight" id="bottomRight"></div>
         </div>                
     </div>
-    <span id="winner"></span>
+    <span data-cy="winner" id="winner"></span>
  </body>
  </html>
