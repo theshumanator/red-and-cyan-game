@@ -3,6 +3,9 @@ const arrOfCells = [...gameboard.getElementsByTagName('div')];
 const winnerLabel = document.getElementById('winner');
 const newGameButton = document.querySelector('button');
 
+const _winningCombinations = [[0,1,2], [0,3,6], [0,4,8], [3,4,5], [6,7,8], [1,4,7], [2,4,6], [2,5,8]];
+
+localStorage.clear();
 
 let overallCounter=0;
 let crossCounter=0;
@@ -20,7 +23,6 @@ function resetGame(event) {
 
 function playGame(event) {
     overallCounter++
-    console.log(overallCounter);
     if (overallCounter===0 ||overallCounter%2===0) {
         event.target.style.setProperty('background-color', 'cyan');
         noughtCounter++        
@@ -30,7 +32,6 @@ function playGame(event) {
     }
     event.target.onclick=null;
 
-    localStorage.clear()
     if (overallCounter >=5) {        
         checkIfWinner();
         const winningColour = localStorage.getItem('Winner');
@@ -44,35 +45,36 @@ function playGame(event) {
     }
 }
 
-function checkIfWinner () {
-    let foundWinner;
+function checkWinningCombo(cellColours) {
+    const winningCombo = _winningCombinations.find(combo => {        
+        return (
+            cellColours[combo[0]] === cellColours[combo[1]] && 
+            cellColours[combo[0]] === cellColours[combo[2]] &&
+            cellColours[combo[0]] !== undefined
+            );
+    });
+    return winningCombo
+}
+
+function checkIfWinner () {    
     const arrObj = {};
     arrOfCells.forEach((element, idx) => {
-        arrObj[idx] = element.style.getPropertyValue('background-color');
+        //only check the coloured cells (need to ignore the white ones)
+        if (element.onclick === null) {
+            arrObj[idx] = element.style.getPropertyValue('background-color');
+        }
     });
-
-    //TODO make this look nicer
-
-    if (arrObj[0] === arrObj[1] && arrObj[1] === arrObj[2]) {            
-        foundWinner = arrObj[0];
-    } else if (arrObj[3] === arrObj[4] && arrObj[4] === arrObj[5]) {          foundWinner = arrObj[3];
-    } else if (arrObj[6] === arrObj[7] && arrObj[7] === arrObj[8]) {          foundWinner = arrObj[6];
-    } else if (arrObj[0] === arrObj[3] && arrObj[3] === arrObj[6]) {          foundWinner = arrObj[0];
-    } else if (arrObj[0] === arrObj[4] && arrObj[4] === arrObj[8]) {          foundWinner = arrObj[0];
-    } else if (arrObj[1] === arrObj[4] && arrObj[4] === arrObj[7]) {        foundWinner = arrObj[1];
-    } else if (arrObj[2] === arrObj[5] && arrObj[5] === arrObj[8]) {          foundWinner = arrObj[2];
-    } else if (arrObj[2] === arrObj[4] && arrObj[4] === arrObj[6]) {          foundWinner = arrObj[2];
-    } else {
-        foundWinner = null;
-    }
+    const winningCombo = checkWinningCombo(arrObj); 
+    let foundWinner=null;
+    if (winningCombo) {
+        foundWinner = arrObj[winningCombo[0]];
+    } 
 
     if (foundWinner) {
         arrOfCells.forEach(element => {
             element.onclick = null;            
         });
         localStorage.removeItem('Winner');
-        localStorage.setItem('Winner', foundWinner);
-        //console.log('winner!' + foundWinner)
-        //winner.textContent = `Found winner!! ${foundWinner}`;        
+        localStorage.setItem('Winner', foundWinner);    
     }
 }
