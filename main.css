@@ -5,8 +5,7 @@
 #gameboard {
     width: 330px;
     height:310px;
-    border:3px solid white;
-    z-index: 1;
+    border:3px solid white;    
 }
 #gameboard div {
     width: 100px;
@@ -19,7 +18,7 @@
 .button {
     background-color:white;
     width: 260px;    
-    margin:0 auto;
+    height: 100px;
 }
 .updown {
     border-top: 1px solid;
@@ -28,4 +27,23 @@
 .leftright {
     border-left: 1px solid;
     border-right: 1px solid;
+}
+
+p {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+span, #winner {
+    font-weight: bolder;    
+}
+#red {
+    background-color: red;
+}
+
+#cyan { 
+    background-color: cyan;
+}
+
+#winner {
+    transition: 2s linear; 
 }

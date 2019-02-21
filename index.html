@@ -10,8 +10,15 @@
      <title>Noughts and Crosses</title>
  </head>
  <body>
-     <h1>Lets play cyan and red</h1>
+     <h1>Lets play cyan and red!</h1>
     
+     <div class="button">
+        <button>New Game</button>
+        <p>
+            First player will be <span id='red'>RED</span> and second player will be <span id='cyan'>CYAN</span>.
+        </p>
+    </div>
+
 <div class="wrapper">
         <div id="gameboard">
             <div id="topLeft"></div>
@@ -23,12 +30,8 @@
             <div id="bottomLeft"></div>
             <div id="bottomMiddle" class="leftright"></div>
             <div id="bottomRight"></div>
-        </div>
-        <div class="button">
-            <button>New Game</button>
-        </div>
-        <label id="winner"></label>
+        </div>                
     </div>
-     
+    <span id="winner"></span>
  </body>
  </html>

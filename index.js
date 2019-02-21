@@ -36,10 +36,13 @@ function playGame(event) {
         checkIfWinner();
         const winningColour = localStorage.getItem('Winner');
         if (winningColour){
-            winner.textContent = `${winningColour} WON!`;
+            console.log(winningColour);
+            winnerLabel.style.setProperty('background-color', winningColour);
+            winnerLabel.textContent = `${winningColour.toUpperCase()} WON!`;
         } else {
             if (overallCounter === 9) {
-                winner.textContent = `BOOO! no winner today!`;
+                winnerLabel.style.setProperty('background-color', 'orange');
+                winnerLabel.textContent = `BOOO! No winner today!`;
             }
         }        
     }
