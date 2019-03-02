@@ -1,7 +1,7 @@
 describe('Game tests', () => {
-    it('Healtcheck 1', () => {
+    it('Healtcheck', () => {
         cy.visit('');
-        cy.contains('Lets play cyan and red!')
+        cy.contains('Lets play red and cyan!')
     });
 
     it('Clicking on the first cell should change the colour to red', () => {
@@ -28,10 +28,10 @@ describe('Game tests', () => {
         cy.get('[data-cy=newGame]').click();
         cy.get('[data-cy=topMiddle]')
             .should('have.css', 'background-color')
-            .and('eq', 'rgba(0, 0, 0, 0)');
+            .and('eq', 'rgb(255, 255, 255)');
             cy.get('[data-cy=topLeft]')
             .should('have.css', 'background-color')
-            .and('eq', 'rgba(0, 0, 0, 0)');
+            .and('eq', 'rgb(255, 255, 255)');
     });
 
     it('Play a game without either user winning', () => {
